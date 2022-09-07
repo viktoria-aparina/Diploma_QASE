@@ -21,7 +21,6 @@ public class DefectApiClient extends BaseApiClient {
     private static final String DEFECT_OFFSET = "offset";
 
     public DefectResponse postDefect(Defect defect, String code, int httpStatusCode) {
-
         Response response = post(DEFECT_URI_WITH_CODE, defect, Map.of(PROJECT_CODE, code));
         return response.then()
                        .statusCode(httpStatusCode)
@@ -41,10 +40,6 @@ public class DefectApiClient extends BaseApiClient {
 
     public Response getDefectResponse(String code, int id) {
         return get(DEFECT_URI_WITH_CODE_AND_ID, Map.of(PROJECT_CODE, code, DEFECT_ID, id));
-    }
-
-    public Response getAttachmentResponse(String code) {
-        return get(DEFECT_URI_WITH_CODE_AND_ID, Map.of(PROJECT_CODE, code));
     }
 
     public DefectResponse deleteDefect(String code, int id, int httpStatusCode) {

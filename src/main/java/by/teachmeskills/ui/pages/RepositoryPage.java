@@ -1,14 +1,22 @@
 package by.teachmeskills.ui.pages;
 
-import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.SelenideElement;
-import org.openqa.selenium.By;
+import lombok.extern.log4j.Log4j2;
+import org.openqa.selenium.TimeoutException;
 
-import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Condition.enabled;
+import static com.codeborne.selenide.Selenide.$x;
 
-public class RepositoryPage {
+@Log4j2
+public class RepositoryPage extends BasePage {
 
-    public SelenideElement getTitle() {
-        return $(By.tagName("h1")).shouldBe(Condition.visible);
+    @Override
+    public boolean isPageOpened() {
+        try {
+            $x("//a[text()=' Suite']").shouldBe(enabled);
+            return true;
+        } catch (TimeoutException exception) {
+            log.error("The page {} was not opened, because of error {}", "Repository Page", exception.getCause());
+            return false;
+        }
     }
 }

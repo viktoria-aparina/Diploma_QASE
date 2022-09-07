@@ -1,7 +1,7 @@
 package by.teachmeskills.api;
 
-import by.teachmeskills.api.dto.defect.Defect;
 import by.teachmeskills.api.dto.allDefects.AllDefects;
+import by.teachmeskills.api.dto.defect.Defect;
 import by.teachmeskills.api.dto.defect.response.DefectResponse;
 import by.teachmeskills.api.providers.DefectProvider;
 import io.restassured.response.Response;
@@ -15,24 +15,17 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class GetAllDefectsTest extends BaseTest {
 
-    Defect expectedDefect1;
-    Defect expectedDefect2;
-    Defect expectedDefect3;
-    DefectResponse postActualDefect1;
-    DefectResponse postActualDefect2;
-    DefectResponse postActualDefect3;
-
     @BeforeMethod
     public void createProjectAndDefects() {
-        expectedDefect1 = new DefectProvider().getDefectWithRequiredFields();
-        postActualDefect1 = defectApiClients.postDefect(expectedDefect1, project.getCode(), HttpStatus.SC_OK);
-        expectedDefect2 = new DefectProvider().getDefectWithRequiredFields();
-        postActualDefect2 = defectApiClients.postDefect(expectedDefect2, project.getCode(), HttpStatus.SC_OK);
-        expectedDefect3 = new DefectProvider().getDefectWithRequiredFields();
-        postActualDefect3 = defectApiClients.postDefect(expectedDefect3, project.getCode(), HttpStatus.SC_OK);
+        Defect expectedDefect1 = new DefectProvider().getDefectWithRequiredFields();
+        DefectResponse postActualDefect1 = defectApiClients.postDefect(expectedDefect1, project.getCode(), HttpStatus.SC_OK);
+        Defect expectedDefect2 = new DefectProvider().getDefectWithRequiredFields();
+        DefectResponse postActualDefect2 = defectApiClients.postDefect(expectedDefect2, project.getCode(), HttpStatus.SC_OK);
+        Defect expectedDefect3 = new DefectProvider().getDefectWithRequiredFields();
+        DefectResponse postActualDefect3 = defectApiClients.postDefect(expectedDefect3, project.getCode(), HttpStatus.SC_OK);
     }
 
-    @Test
+    @Test(groups = "smoke API tests")
     public void getAllDefectsTest() {
         int limit = 2;
         int offset = 1;
@@ -42,12 +35,6 @@ public class GetAllDefectsTest extends BaseTest {
         Response actualAllDefectsResponse = defectApiClients.getAllDefectsResponse(project.getCode(), limit, offset);
         assertThat(actualAllDefectsResponse.jsonPath().get("result.count").toString()).as("Count of project is incorrect")
                                                                                       .isEqualTo(valueOf(2));
-    }
-
-    @AfterMethod
-    public void deleteDefects() {
-        defectApiClients.deleteDefect(project.getCode(), postActualDefect1.getResult().getId(), HttpStatus.SC_OK);
-        defectApiClients.deleteDefect(project.getCode(), postActualDefect2.getResult().getId(), HttpStatus.SC_OK);
-        defectApiClients.deleteDefect(project.getCode(), postActualDefect3.getResult().getId(), HttpStatus.SC_OK);
+        assertThat(actualAllDefectsResponse.jsonPath().getList("result.entities").size()).as("").isEqualTo(2);
     }
 }

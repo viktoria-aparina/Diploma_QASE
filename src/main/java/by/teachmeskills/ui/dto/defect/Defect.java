@@ -1,23 +1,24 @@
 package by.teachmeskills.ui.dto.defect;
 
-
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
+import lombok.experimental.Accessors;
 
 import java.io.File;
 
+import static lombok.AccessLevel.PRIVATE;
+
 @Data
-@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@AllArgsConstructor
+@NoArgsConstructor(access = PRIVATE)
 @Builder
+@Accessors(chain = true)
 public class Defect {
 
-    String title;
-    String actualResult;
-    Severity severity;
-    Assigned assigned;
-    String milestone;
-    String tag;
-    File attachment;
+    private String title;
+    private String actualResult;
+    private Severity severity;
+    private Assigned assigned;
+    private String milestone;
+    private String tag;
+    private File attachment;
 }

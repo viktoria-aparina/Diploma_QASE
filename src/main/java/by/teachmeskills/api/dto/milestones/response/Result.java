@@ -1,4 +1,4 @@
-package by.teachmeskills.api.dto.milestones;
+package by.teachmeskills.api.dto.milestones.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

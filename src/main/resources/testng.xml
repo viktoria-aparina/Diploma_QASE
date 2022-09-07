@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All tests" thread-count="2" parallel="classes">
+    <listeners>
+        <listener class-name="by.teachmeskills.ui.utils.TestListener"/>
+        <listener class-name="by.teachmeskills.ui.utils.AnnotationTransformer"/>
+    </listeners>
+    <suite-files>
+        <suite-file path="smoke.xml"/>
+        <suite-file path="regression.xml"/>
+    </suite-files>
+</suite>
+

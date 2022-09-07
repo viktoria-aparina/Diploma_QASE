@@ -18,7 +18,7 @@ import static lombok.AccessLevel.PRIVATE;
 public class DefectResponse {
 
     private boolean status;
-    Result result;
+    private Result result;
     private String errorMessage;
     private List<ErrorFields> errorFields;
 }

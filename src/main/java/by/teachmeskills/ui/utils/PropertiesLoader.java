@@ -9,6 +9,8 @@ import java.util.Properties;
 @Log4j2
 public class PropertiesLoader {
 
+    public static final String CONFIG_PROPERTIES = "config.properties";
+
     public static Properties loadProperties(String fileName) {
         Properties properties = new Properties();
 
@@ -24,7 +26,6 @@ public class PropertiesLoader {
     }
 
     public static Properties loadProperties() {
-        Properties properties = loadProperties("config.properties");
-        return properties;
+        return loadProperties(CONFIG_PROPERTIES);
     }
 }

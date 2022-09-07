@@ -1,17 +1,19 @@
 package by.teachmeskills.ui.dto.project;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
+import lombok.experimental.Accessors;
+
+import static lombok.AccessLevel.PRIVATE;
 
 @Data
-@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@AllArgsConstructor
+@NoArgsConstructor(access = PRIVATE)
 @Builder
+@Accessors(chain = true)
 public class Project {
 
-    String name;
-    String code;
-    String description;
-    ProjectAccess accessLevel;
+    private String name;
+    private String code;
+    private String description;
+    private ProjectAccess accessLevel;
 }

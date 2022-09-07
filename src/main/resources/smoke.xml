@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Smoke Tests" thread-count="2" parallel="classes">
+    <listeners>
+        <listener class-name="by.teachmeskills.ui.utils.TestListener"/>
+        <listener class-name="by.teachmeskills.ui.utils.AnnotationTransformer"/>
+    </listeners>
+    <test name="API Tests">
+        <classes>
+            <class name="by.teachmeskills.api.PostDefectWithRequiredFieldsTest"/>
+            <class name="by.teachmeskills.api.PostDefectWithAllFieldsTest"/>
+            <class name="by.teachmeskills.api.DeleteDefectTest"/>
+            <class name="by.teachmeskills.api.GetAllDefectsTest"/>
+        </classes>
+    </test>
+    <test name="UI Tests">
+        <classes>
+            <class name="by.teachmeskills.ui.CreateDefectTest"/>
+            <class name="by.teachmeskills.ui.DeleteDefectTest"/>
+        </classes>
+    </test>
+</suite>
+

@@ -13,7 +13,6 @@ public class AttachmentApiClient extends BaseApiClient {
     private static final String PROJECT_CODE = "code";
 
     public AttachmentResponse postAttachment(File attachment, String code, int httpStatusCode) {
-
         Response response = basePostAttachment(ATTACHMENT_URI_WITH_CODE, attachment, Map.of(PROJECT_CODE, code));
         return response.then()
                        .statusCode(httpStatusCode)

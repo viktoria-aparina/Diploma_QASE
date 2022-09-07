@@ -1,24 +1,32 @@
 package by.teachmeskills.ui.pages;
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
-import org.openqa.selenium.By;
+import lombok.extern.log4j.Log4j2;
+import org.openqa.selenium.TimeoutException;
 
-import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$x;
 
-public class AllMilestonesPage {
+@Log4j2
+public class AllMilestonesPage extends BasePage {
 
-    public SelenideElement getTitle() {
-        return $(By.tagName("h1")).shouldBe(Condition.visible);
+    @Override
+    public boolean isPageOpened() {
+        try {
+            $x("//a[text()='Create milestone']").shouldBe(enabled);
+            return true;
+        } catch (TimeoutException exception) {
+            log.error("The page {} was not opened, because of error {}", "All Milestones Page", exception.getCause());
+            return false;
+        }
     }
 
     public NewMilestonePage clickCreateMilestoneButton() {
-        $x("//a[text()='Create milestone']").shouldBe(Condition.visible).click();
+        $x("//a[text()='Create milestone']").shouldBe(enabled).click();
         return new NewMilestonePage();
     }
 
     public SelenideElement getAlert() {
-        return $x("//div[@role='alert']").shouldBe(Condition.visible);
+        return $x("//div[@role='alert']").shouldBe(visible);
     }
 }

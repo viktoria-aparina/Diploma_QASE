@@ -2,7 +2,7 @@ package by.teachmeskills.api.dto.defect;
 
 public enum Status {
 
-    IN_PROGRESS,
-    RESOLVED,
-    INVALID
+    in_progress,
+    resolved,
+    open
 }

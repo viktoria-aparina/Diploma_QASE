@@ -16,19 +16,19 @@ public class DefectProvider {
         return Defect.builder()
                      .title(faker.company().catchPhrase())
                      .actualResult(faker.app().author())
-                     .severity(Severity.valueOf(Severity.CRITICAL.toString().toUpperCase()))
+                     .severity(Severity.major)
                      .build();
     }
 
-    public Defect getDefectWithAllFields(String milestonename) {
+    public Defect getDefectWithAllFields(String milestoneName) {
         return Defect.builder()
                      .title(faker.company().catchPhrase())
                      .actualResult(faker.app().author())
-                     .severity(Severity.valueOf(Severity.NORMAL.toString().toUpperCase()))
-                     .milestone(milestonename)
-                     .assigned(Assigned.valueOf(Assigned.UNASSIGNED.toString().toUpperCase()))
+                     .severity(Severity.normal)
+                     .milestone(milestoneName)
+                     .assigned(Assigned.UNASSIGNED)
                      .tag(RandomStringUtils.randomAlphabetic(3))
-                     .attachment(new File(System.getProperty("user.dir") + "\\TestAttachment.png"))
+                     .attachment(new File(System.getProperty("user.dir") + "\\src\\main\\resources\\TestAttachment.png"))
                      .build();
     }
 }

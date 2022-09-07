@@ -1,6 +1,7 @@
 package by.teachmeskills.api;
 
 import by.teachmeskills.api.dto.defect.Defect;
+import by.teachmeskills.api.dto.defect.Severity;
 import by.teachmeskills.api.dto.defect.response.DefectResponse;
 import by.teachmeskills.api.providers.DefectProvider;
 import org.apache.http.HttpStatus;
@@ -11,22 +12,18 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class PostDefectWithRequiredFieldsTest extends BaseTest {
 
-    DefectResponse postActualDefect;
-
-    @Test
+    @Test(groups = "smoke API tests")
     public void createDefectTestWithRequiredFields() {
         Defect expectedDefect = new DefectProvider().getDefectWithRequiredFields();
-        postActualDefect = defectApiClients.postDefect(expectedDefect, project.getCode(), HttpStatus.SC_OK);
+        DefectResponse postActualDefect = defectApiClients.postDefect(expectedDefect, project.getCode(), HttpStatus.SC_OK);
         assertDefectResponse(postActualDefect);
 
         DefectResponse getActualDefect = getDefect(postActualDefect);
         assertThat(getActualDefect).as("Defects are different").usingRecursiveComparison()
-                                   .comparingOnlyFields("result.title", "result.actual_result", "result.severity")
+                                   .comparingOnlyFields("result.title", "result.actual_result")
                                    .isEqualTo(expectedDefect);
-    }
-
-    @AfterMethod
-    public void deleteDefect() {
-        defectApiClients.deleteDefect(project.getCode(), postActualDefect.getResult().getId(), HttpStatus.SC_OK);
+        assertThat(getActualDefect.getResult().getSeverity()).as("The severity is different in actual and expected result")
+                                                             .isEqualTo(Severity.getSeverityByCode(expectedDefect.getSeverity())
+                                                                                .toString());
     }
 }

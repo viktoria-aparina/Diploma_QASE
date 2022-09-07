@@ -1,4 +1,4 @@
-package by.teachmeskills.api.dto.milestones;
+package by.teachmeskills.api.dto.defect.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,8 +13,7 @@ import static lombok.AccessLevel.PRIVATE;
 @NoArgsConstructor(access = PRIVATE)
 @Builder
 @Accessors(chain = true)
-public class MilestoneResponse {
+public class Attachment {
 
-    private boolean status;
-    private Result result;
+     private String hash;
 }

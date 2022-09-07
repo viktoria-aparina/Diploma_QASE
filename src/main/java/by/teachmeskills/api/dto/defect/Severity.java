@@ -2,19 +2,19 @@ package by.teachmeskills.api.dto.defect;
 
 import java.util.Arrays;
 
-public enum DefectSeverity {
+public enum Severity {
 
-    UNDEFINED(0),
-    BLOCKER(1),
-    CRITICAL(2),
-    MAJOR(3),
-    NORMAL(4),
-    MINOR(5),
-    TRIVIAL(6);
+    undefined(0),
+    blocker(1),
+    critical(2),
+    major(3),
+    normal(4),
+    minor(5),
+    trivial(6);
 
     private final int code;
 
-    DefectSeverity(int number) {
+    Severity(int number) {
         this.code = number;
     }
 
@@ -22,8 +22,8 @@ public enum DefectSeverity {
         return code;
     }
 
-    public DefectSeverity getSeverityByCode(int code) {
-        return Arrays.stream(DefectSeverity.values())
+    public static Severity getSeverityByCode(int code) {
+        return Arrays.stream(Severity.values())
                 .filter(s -> s.getCode() == code)
                 .findFirst()
                 .orElseThrow(() -> new IllegalArgumentException("There is no severity with code" + code));

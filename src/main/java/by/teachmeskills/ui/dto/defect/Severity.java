@@ -2,13 +2,13 @@ package by.teachmeskills.ui.dto.defect;
 
 public enum Severity {
 
-    NOT_SET("//div[contains(@id, 'option-0')]"),
-    BLOCKER("//div[contains(@id, 'option-1')]"),
-    CRITICAL("//div[contains(@id, 'option-2')]"),
-    MAJOR("//div[contains(@id, 'option-3')]"),
-    NORMAL("//div[contains(@id, 'option-4')]"),
-    MINOR("//div[contains(@id, 'option-5')]"),
-    TRIVIAL("//div[contains(@id, 'option-6')]");
+    not_set("//div[contains(@id, 'option-0')]"),
+    blocker("//div[contains(@id, 'option-1')]"),
+    critical("//div[contains(@id, 'option-2')]"),
+    major("//div[contains(@id, 'option-3')]"),
+    normal("//div[contains(@id, 'option-4')]"),
+    minor("//div[contains(@id, 'option-5')]"),
+    trivial("//div[contains(@id, 'option-6')]");
 
     private final String locator;
 

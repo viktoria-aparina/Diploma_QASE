@@ -1,4 +1,4 @@
-package by.teachmeskills.ui.dto.milestone;
+package by.teachmeskills.api.dto.milestones.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,10 +13,8 @@ import static lombok.AccessLevel.PRIVATE;
 @NoArgsConstructor(access = PRIVATE)
 @Builder
 @Accessors(chain = true)
-public class Milestone {
+public class MilestoneResponse {
 
-    private String name;
-    private String description;
-    private Status status;
-    private String date;
+    private boolean status;
+    private Result result;
 }

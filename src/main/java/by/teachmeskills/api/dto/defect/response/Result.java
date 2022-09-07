@@ -1,6 +1,8 @@
 package by.teachmeskills.api.dto.defect.response;
 
 import by.teachmeskills.api.dto.allDefects.Tag;
+import by.teachmeskills.api.dto.defect.Status;
+import by.teachmeskills.api.dto.milestones.Milestone;
 import com.google.gson.annotations.SerializedName;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -24,15 +26,15 @@ public class Result {
     private String title;
     @SerializedName("actual_result")
     private String actualResult;
-    private String status;
+    private Status status;
     @SerializedName("milestone_id")
-    private Object milestoneId;
+    private int milestoneId;
     @SerializedName("project_id")
     private int projectId;
     private String severity;
     @SerializedName("member_id")
     private int memberId;
-    private List<Object> attachments;
+    private List<Attachment> attachments;
     @SerializedName("custom_fields")
     private List<Object> customFields;
     @SerializedName("external_data")

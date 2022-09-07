@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Regression Tests" thread-count="2" parallel="classes">
+    <listeners>
+        <listener class-name="by.teachmeskills.ui.utils.TestListener"/>
+        <listener class-name="by.teachmeskills.ui.utils.AnnotationTransformer"/>
+    </listeners>
+    <test name="API tests">
+        <classes>
+            <class name="by.teachmeskills.api.PatchDefectTest"/>
+        </classes>
+    </test>
+    <test name="UI tests">
+        <classes>
+            <class name="by.teachmeskills.ui.UpdateDefectTest"/>
+        </classes>
+    </test>
+</suite>

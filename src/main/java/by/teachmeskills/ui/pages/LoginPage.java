@@ -1,9 +1,10 @@
 package by.teachmeskills.ui.pages;
 
 import by.teachmeskills.ui.utils.PropertiesLoader;
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.SelenideElement;
 import lombok.extern.log4j.Log4j2;
+import org.openqa.selenium.TimeoutException;
 
 import static com.codeborne.selenide.Condition.enabled;
 import static com.codeborne.selenide.Selenide.$;
@@ -11,11 +12,22 @@ import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static org.openqa.selenium.By.id;
 
 @Log4j2
-public class LoginPage {
+public class LoginPage extends BasePage {
+
+    @Override
+    public boolean isPageOpened() {
+        try {
+            $(id("btnLogin")).shouldBe(enabled);
+            return true;
+        } catch (TimeoutException exception) {
+            log.error("The page {} was not opened, because of error {}", "Login Page", exception.getCause());
+            return false;
+        }
+    }
 
     public LoginPage open() {
+       // Configuration.headless = true;
         Selenide.open("/login");
-        getWebDriver().manage().window().maximize();
         return this;
     }
 
@@ -25,9 +37,5 @@ public class LoginPage {
         $(id("btnLogin")).click();
         log.info("User was logged in successfully");
         return new AllProjectsPage();
-    }
-
-    public SelenideElement getLoginButton() {
-        return $(id("btnLogin")).shouldBe(enabled);
     }
 }

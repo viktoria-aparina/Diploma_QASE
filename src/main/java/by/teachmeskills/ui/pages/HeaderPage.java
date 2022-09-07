@@ -9,19 +9,19 @@ public class HeaderPage {
 
     public AllDefectsPage clickDefectsButton() {
         $x("//span[text()='Defects']").click();
-        log.info("The user is on All Defects page");
+        log.info("The user is on All Defects Page");
         return new AllDefectsPage();
     }
 
     public AllMilestonesPage clickMilestonesButton() {
         $x("//span[text()='Milestones']").click();
-        log.info("The user is on All Milestones page");
+        log.info("The user is on All Milestones Page");
         return new AllMilestonesPage();
     }
 
     public SettingsPage clickSettingsButton() {
         $x("//span[text()='Settings']").click();
-        log.info("The user is on Settings page");
+        log.info("The user is on Settings Page");
         return new SettingsPage();
     }
 }

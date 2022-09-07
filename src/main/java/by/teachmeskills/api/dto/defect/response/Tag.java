@@ -1,5 +1,6 @@
-package by.teachmeskills.ui.dto.milestone;
+package by.teachmeskills.api.dto.defect.response;
 
+import com.google.gson.annotations.SerializedName;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,10 +14,9 @@ import static lombok.AccessLevel.PRIVATE;
 @NoArgsConstructor(access = PRIVATE)
 @Builder
 @Accessors(chain = true)
-public class Milestone {
+public class Tag {
 
-    private String name;
-    private String description;
-    private Status status;
-    private String date;
+    private String title;
+    @SerializedName("internal_id")
+    private int internalId;
 }

@@ -15,7 +15,6 @@ public class BaseApiClient {
     private final static String TOKEN = "567843fe1830148b87fe314fa2af79691f543a93";
 
     public BaseApiClient() {
-
         rqSpec = given()
                 .contentType(ContentType.JSON)
                 .accept(ContentType.JSON)

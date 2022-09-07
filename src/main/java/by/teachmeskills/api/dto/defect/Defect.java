@@ -22,9 +22,10 @@ public class Defect {
     @SerializedName("actual_result")
     private String actualResult;
     private int severity;
+    @SerializedName("milestone_id")
     private int milestoneId;
-    private String attachment;
+    private List<String> attachments;
     private Object customFields;
-    private String tag;
-    private String status;
+    private List<String> tags;
+    private Status status;
 }

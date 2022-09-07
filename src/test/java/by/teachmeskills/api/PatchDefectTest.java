@@ -22,7 +22,7 @@ public class PatchDefectTest extends BaseTest {
         postActualDefect = defectApiClients.postDefect(expectedDefect, project.getCode(), HttpStatus.SC_OK);
     }
 
-    @Test
+    @Test(groups = "regression tests")
     public void updateDefect() {
         Defect updatedDefect = expectedDefect.setTitle("HOME");
         DefectResponse patchUpdatedDefect = defectApiClients.updateDefect(updatedDefect, project.getCode(),
@@ -36,7 +36,7 @@ public class PatchDefectTest extends BaseTest {
                                    .isEqualTo(updatedDefect);
     }
 
-    @Test
+    @Test(groups = "regression tests")
     public void resolveDefect() {
         DefectResponse patchActualDefect = defectApiClients.resolveDefect(project.getCode(),
                                                                           postActualDefect.getResult().getId(),
@@ -45,12 +45,12 @@ public class PatchDefectTest extends BaseTest {
 
         DefectResponse getActualDefect = getDefect(patchActualDefect);
         assertThat(getActualDefect.getResult().getStatus()).as("The status in the response doesn't match expected status")
-                                                           .isEqualTo(Status.RESOLVED.toString().toLowerCase());
+                                                           .isEqualTo(Status.resolved);
     }
 
-    @Test
+    @Test(groups = "regression API tests")
     public void updateDefectStatus() {
-        Defect updatedDefectStatus = expectedDefect.setStatus(Status.IN_PROGRESS.toString().toLowerCase());
+        Defect updatedDefectStatus = expectedDefect.setStatus(Status.in_progress);
         DefectResponse patchUpdatedDefectStatus = defectApiClients.changeDefectStatus(updatedDefectStatus, project.getCode(),
                                                                                       postActualDefect.getResult().getId(),
                                                                                       HttpStatus.SC_OK);
@@ -59,11 +59,6 @@ public class PatchDefectTest extends BaseTest {
 
         DefectResponse getActualDefect = getDefect(postActualDefect);
         assertThat(getActualDefect.getResult().getStatus()).as("Statuses are different")
-                                                           .isEqualTo(Status.IN_PROGRESS.toString().toLowerCase());
-    }
-
-    @AfterMethod
-    public void deleteDefects() {
-        defectApiClients.deleteDefect(project.getCode(), postActualDefect.getResult().getId(), HttpStatus.SC_OK);
+                                                           .isEqualTo(Status.in_progress);
     }
 }

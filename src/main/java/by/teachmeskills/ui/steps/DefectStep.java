@@ -1,35 +1,29 @@
 package by.teachmeskills.ui.steps;
 
-import by.teachmeskills.ui.pages.*;
-import by.teachmeskills.ui.providers.DefectProvider;
+import by.teachmeskills.ui.pages.AllDefectsPage;
+import by.teachmeskills.ui.pages.HeaderPage;
+import by.teachmeskills.ui.pages.NewDefectPage;
+import io.qameta.allure.Step;
 
 public class DefectStep {
 
     NewDefectPage newDefectPage;
     HeaderPage headerPage;
-    SettingsPage settingsPage;
-    AllProjectsPage allProjectsPage;
     AllDefectsPage allDefectsPage;
 
     public DefectStep() {
         this.newDefectPage = new NewDefectPage();
         this.headerPage = new HeaderPage();
-        this.settingsPage = new SettingsPage();
-        this.allProjectsPage = new AllProjectsPage();
         this.allDefectsPage = new AllDefectsPage();
     }
 
-    public AllProjectsPage deleteDefect() {
+    public AllDefectsPage deleteDefect(String defectTitle) {
         newDefectPage.clickCancelButtonAndCloseNotificationForm();
-        headerPage.clickSettingsButton();
-        settingsPage.deleteProject();
-        return allProjectsPage;
+        return allDefectsPage.clickDropDownButton(defectTitle, "Delete")
+                             .clickDeleteInNotification();
     }
 
-    public AllDefectsPage createDefectWithRequiredFields() {
-        headerPage.clickDefectsButton();
-        allDefectsPage.clickCreateNewDefectButton();
-        newDefectPage.createNewDefectWithRequiredFields(new DefectProvider().getDefectWithRequiredFields()).submitForm();
-        return allDefectsPage;
+    public NewDefectPage clickCreateDefectButton() {
+        return headerPage.clickDefectsButton().clickCreateNewDefectButton();
     }
 }

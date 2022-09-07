@@ -12,16 +12,15 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class DeleteDefectTest extends BaseTest {
 
-    Defect expectedDefect;
     DefectResponse postActualDefect;
 
     @BeforeMethod
     public void createDefect() {
-        expectedDefect = new DefectProvider().getDefectWithRequiredFields();
+        Defect expectedDefect = new DefectProvider().getDefectWithRequiredFields();
         postActualDefect = defectApiClients.postDefect(expectedDefect, project.getCode(), HttpStatus.SC_OK);
     }
 
-    @Test
+    @Test(groups = "smoke API tests")
     public void deleteDefectTest() {
         DefectResponse deletedDefect = defectApiClients.deleteDefect(project.getCode(),
                                                                      postActualDefect.getResult().getId(),
