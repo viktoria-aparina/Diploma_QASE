@@ -26,8 +26,8 @@ public class LoginPage extends BasePage {
     }
 
     public LoginPage open() {
-        Configuration.headless = true;
         Selenide.open("/login");
+        Configuration.headless = true;
         return this;
     }
 
