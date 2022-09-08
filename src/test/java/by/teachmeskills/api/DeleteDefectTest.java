@@ -20,7 +20,7 @@ public class DeleteDefectTest extends BaseTest {
         postActualDefect = defectApiClients.postDefect(expectedDefect, project.getCode(), HttpStatus.SC_OK);
     }
 
-    @Test(groups = "smoke API tests")
+    @Test(groups = "smoke API tests", description = "API: Delete defect with required fields")
     public void deleteDefectTest() {
         DefectResponse deletedDefect = defectApiClients.deleteDefect(project.getCode(),
                                                                      postActualDefect.getResult().getId(),

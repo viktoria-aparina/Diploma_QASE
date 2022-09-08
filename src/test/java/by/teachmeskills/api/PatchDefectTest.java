@@ -22,7 +22,7 @@ public class PatchDefectTest extends BaseTest {
         postActualDefect = defectApiClients.postDefect(expectedDefect, project.getCode(), HttpStatus.SC_OK);
     }
 
-    @Test(groups = "regression tests")
+    @Test(groups = "regression tests", description = "API: Update defect title")
     public void updateDefect() {
         Defect updatedDefect = expectedDefect.setTitle("HOME");
         DefectResponse patchUpdatedDefect = defectApiClients.updateDefect(updatedDefect, project.getCode(),
@@ -36,7 +36,7 @@ public class PatchDefectTest extends BaseTest {
                                    .isEqualTo(updatedDefect);
     }
 
-    @Test(groups = "regression tests")
+    @Test(groups = "regression tests", description = "API: Make defect status resolved")
     public void resolveDefect() {
         DefectResponse patchActualDefect = defectApiClients.resolveDefect(project.getCode(),
                                                                           postActualDefect.getResult().getId(),
@@ -48,7 +48,7 @@ public class PatchDefectTest extends BaseTest {
                                                            .isEqualTo(Status.resolved);
     }
 
-    @Test(groups = "regression API tests")
+    @Test(groups = "regression API tests", description = "API: Update defect status")
     public void updateDefectStatus() {
         Defect updatedDefectStatus = expectedDefect.setStatus(Status.in_progress);
         DefectResponse patchUpdatedDefectStatus = defectApiClients.changeDefectStatus(updatedDefectStatus, project.getCode(),

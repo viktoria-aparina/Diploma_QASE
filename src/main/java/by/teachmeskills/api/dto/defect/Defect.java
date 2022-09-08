@@ -23,7 +23,7 @@ public class Defect {
     private String actualResult;
     private int severity;
     @SerializedName("milestone_id")
-    private int milestoneId;
+    private String milestoneId;
     private List<String> attachments;
     private Object customFields;
     private List<String> tags;

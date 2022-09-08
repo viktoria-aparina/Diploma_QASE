@@ -28,7 +28,7 @@ public class Result {
     private String actualResult;
     private Status status;
     @SerializedName("milestone_id")
-    private int milestoneId;
+    private String milestoneId;
     @SerializedName("project_id")
     private int projectId;
     private String severity;
