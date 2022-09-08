@@ -18,7 +18,7 @@ public class BaseApiClient {
         rqSpec = given()
                 .contentType(ContentType.JSON)
                 .accept(ContentType.JSON)
-                .header("Token", TOKEN)
+                .header("Token", System.getenv("Token"))
                 .baseUri("https://api.qase.io/")
                 .log().ifValidationFails();
     }
