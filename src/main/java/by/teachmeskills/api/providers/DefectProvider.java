@@ -20,7 +20,7 @@ public class DefectProvider {
                      .build();
     }
 
-    public Defect getDefectWithAllField(List<String> hashCodes, int milestoneId) {
+    public Defect getDefectWithAllField(List<String> hashCodes, String milestoneId) {
         List<String> tags = new ArrayList<>();
         tags.add(RandomStringUtils.randomAlphabetic(3));
         return Defect.builder()

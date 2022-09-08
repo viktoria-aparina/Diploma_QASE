@@ -9,6 +9,7 @@ import by.teachmeskills.ui.pages.NewDefectPage;
 import by.teachmeskills.ui.providers.DefectProvider;
 import by.teachmeskills.ui.providers.MilestoneProvider;
 import by.teachmeskills.ui.steps.MilestoneSteps;
+import io.qameta.allure.Description;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
@@ -20,7 +21,7 @@ import static org.testng.Assert.assertTrue;
 
 public class CreateDefectTest extends BaseTest {
 
-    @Test(groups = "smoke UI tests")
+    @Test(groups = "smoke UI tests", description = "UI: Create defect with required fields")
     public void createNewDefectWithRequiredFields() {
         new HeaderPage().clickDefectsButton().clickCreateNewDefectButton();
         assertTrue(new NewDefectPage().isPageOpened(), "The New Defect Page wasn't opened");
@@ -39,7 +40,7 @@ public class CreateDefectTest extends BaseTest {
         assertThat(actualDefect).as("Defects are different").isEqualTo(defect);
     }
 
-    @Test(groups = "smoke UI tests")
+    @Test(groups = "smoke UI tests", description = "UI: Create defect with all fields")
     public void createNewDefectWithAllFields() {
         Milestone milestone = new MilestoneProvider().getMilestone();
         new MilestoneSteps().createNewMilestone(milestone);

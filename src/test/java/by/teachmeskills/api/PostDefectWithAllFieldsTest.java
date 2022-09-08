@@ -21,7 +21,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class PostDefectWithAllFieldsTest extends BaseTest {
 
     private final List<String> hashCodes = new ArrayList<>();
-    private int milestoneId;
+    private String milestoneId;
 
     @BeforeMethod
     public void prepareFields() {
@@ -43,7 +43,7 @@ public class PostDefectWithAllFieldsTest extends BaseTest {
         milestoneId = postActualMilestone.getResult().getId();
     }
 
-    @Test(groups = "smoke API tests")
+    @Test(groups = "smoke API tests", description = "API: Create defect with all fields")
     public void createDefectTestWithAllFields() {
         Defect expectedDefect = new DefectProvider().getDefectWithAllField(hashCodes, milestoneId);
         DefectResponse postActualDefect = defectApiClients.postDefect(expectedDefect, project.getCode(), HttpStatus.SC_OK);

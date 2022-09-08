@@ -25,7 +25,7 @@ public class GetAllDefectsTest extends BaseTest {
         DefectResponse postActualDefect3 = defectApiClients.postDefect(expectedDefect3, project.getCode(), HttpStatus.SC_OK);
     }
 
-    @Test(groups = "smoke API tests")
+    @Test(groups = "smoke API tests", description = "API: Get all project's defects")
     public void getAllDefectsTest() {
         int limit = 2;
         int offset = 1;

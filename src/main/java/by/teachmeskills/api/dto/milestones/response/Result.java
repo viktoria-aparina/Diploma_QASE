@@ -15,5 +15,5 @@ import static lombok.AccessLevel.PRIVATE;
 @Accessors(chain = true)
 public class Result {
 
-    private int id;
+    private String id;
 }

@@ -18,7 +18,7 @@ public class DeleteDefectTest extends BaseTest {
         new DefectStep().clickCreateDefectButton();
     }
 
-    @Test(groups = "smoke UI tests")
+    @Test(groups = "smoke UI tests", description = "UI: Delete defect with required fields using dropdown menu")
     public void deleteDefectTest() {
         Defect defect = new DefectProvider().getDefectWithRequiredFields();
         new NewDefectPage().createNewDefectWithRequiredFields(defect)

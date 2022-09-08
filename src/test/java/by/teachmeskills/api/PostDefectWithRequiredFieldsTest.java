@@ -12,7 +12,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class PostDefectWithRequiredFieldsTest extends BaseTest {
 
-    @Test(groups = "smoke API tests")
+    @Test(groups = "smoke API tests", description = "API: Create defect with required fields")
     public void createDefectTestWithRequiredFields() {
         Defect expectedDefect = new DefectProvider().getDefectWithRequiredFields();
         DefectResponse postActualDefect = defectApiClients.postDefect(expectedDefect, project.getCode(), HttpStatus.SC_OK);

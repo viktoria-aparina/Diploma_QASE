@@ -23,7 +23,7 @@ public class UpdateDefectTest extends BaseTest {
                            .submitForm();
     }
 
-    @Test(groups = "regression UI tests")
+    @Test(groups = "regression UI tests", description = "UI: Update defect title")
     public void updateDefectTitle() {
         new AllDefectsPage().clickDropDownButton(defect.getTitle(), "Edit");
         assertTrue(new NewDefectPage().isPageOpened(), "The New Defect Page wasn't opened");
@@ -34,7 +34,7 @@ public class UpdateDefectTest extends BaseTest {
         assertTrue(new AllDefectsPage().isVisibleNewDefectTitle("Updated defect title"), "The defect title wasn't updated");
     }
 
-    @Test(groups = "regression UI tests")
+    @Test(groups = "regression UI tests", description = "UI: Update defect status using dropdown menu")
     public void updateDefectStatus() {
         new AllDefectsPage().clickDropDownButton(defect.getTitle(), "Resolve")
                             .clickConfirmInNotification()
