@@ -1,7 +1,5 @@
 package by.teachmeskills.ui.pages;
 
-import by.teachmeskills.ui.utils.PropertiesLoader;
-import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.TimeoutException;
@@ -32,8 +30,8 @@ public class LoginPage extends BasePage {
     }
 
     public AllProjectsPage loginWithValidCredential() {
-        $(id("inputEmail")).sendKeys(PropertiesLoader.loadProperties().getProperty("login"));
-        $(id("inputPassword")).sendKeys(PropertiesLoader.loadProperties().getProperty("password"));
+        $(id("inputEmail")).sendKeys(System.getenv("username"));
+        $(id("inputPassword")).sendKeys(System.getenv("password"));
         $(id("btnLogin")).click();
         log.info("User was logged in successfully");
         return new AllProjectsPage();
