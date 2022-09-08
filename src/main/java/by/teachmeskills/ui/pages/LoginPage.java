@@ -32,8 +32,8 @@ public class LoginPage extends BasePage {
     }
 
     public AllProjectsPage loginWithValidCredential() {
-        $(id("inputEmail")).sendKeys(System.getenv("Username"));
-        $(id("inputPassword")).sendKeys(System.getenv("Password"));
+        $(id("inputEmail")).sendKeys(System.getenv("username"));
+        $(id("inputPassword")).sendKeys(System.getenv("password"));
         $(id("btnLogin")).click();
         log.info("User was logged in successfully");
         return new AllProjectsPage();
