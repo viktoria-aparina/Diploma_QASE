@@ -12,7 +12,6 @@ import static io.restassured.RestAssured.given;
 public class BaseApiClient {
 
     RequestSpecification rqSpec;
-    private final static String TOKEN = "567843fe1830148b87fe314fa2af79691f543a93";
 
     public BaseApiClient() {
         rqSpec = given()
@@ -52,7 +51,7 @@ public class BaseApiClient {
         return given()
                 .contentType(ContentType.MULTIPART)
                 .accept(ContentType.JSON)
-                .header("Token", TOKEN)
+                .header("Token", System.getenv("token"))
                 .baseUri("https://api.qase.io/")
                 .multiPart("file", attachment, "image/x-png")
                 .log().ifValidationFails()

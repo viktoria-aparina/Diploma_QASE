@@ -1,7 +1,5 @@
 package by.teachmeskills.ui.pages;
 
-import by.teachmeskills.ui.utils.PropertiesLoader;
-import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.TimeoutException;
