@@ -27,7 +27,7 @@ public class LoginPage extends BasePage {
 
     public LoginPage open() {
         Selenide.open("/login");
-        Configuration.browserSize = "1920х1080";
+        getWebDriver().manage().window().maximize();
         return this;
     }
 
