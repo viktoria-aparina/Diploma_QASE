@@ -20,7 +20,7 @@
         <aspectj.version>1.9.9</aspectj.version>
         <allure-testng.version>2.18.1</allure-testng.version>
         <log4j.version>2.18.0</log4j.version>
-        <jackson.dataformat.version>2.13.3</jackson.dataformat.version>
+        <yaml.version>2.13.3</yaml.version>
         <lombok.version>1.18.24</lombok.version>
         <selenide.version>6.6.6</selenide.version>
         <assertj.version>3.23.1</assertj.version>
@@ -64,6 +64,12 @@
             <artifactId>lombok</artifactId>
             <version>${lombok.version}</version>
             <scope>provided</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.dataformat/jackson-dataformat-yaml -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-yaml</artifactId>
+            <version>${yaml.version}</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/com.codeborne/selenide -->
         <dependency>
