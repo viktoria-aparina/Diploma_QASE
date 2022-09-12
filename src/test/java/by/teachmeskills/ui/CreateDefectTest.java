@@ -9,7 +9,6 @@ import by.teachmeskills.ui.pages.NewDefectPage;
 import by.teachmeskills.ui.providers.DefectProvider;
 import by.teachmeskills.ui.providers.MilestoneProvider;
 import by.teachmeskills.ui.steps.MilestoneSteps;
-import io.qameta.allure.Description;
 import org.testng.annotations.Test;
 
 import java.time.Duration;

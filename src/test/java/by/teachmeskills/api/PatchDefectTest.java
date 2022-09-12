@@ -5,7 +5,6 @@ import by.teachmeskills.api.dto.defect.Status;
 import by.teachmeskills.api.dto.defect.response.DefectResponse;
 import by.teachmeskills.api.providers.DefectProvider;
 import org.apache.http.HttpStatus;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 

@@ -2,11 +2,9 @@ package by.teachmeskills.ui.pages;
 
 import com.codeborne.selenide.Selenide;
 import lombok.extern.log4j.Log4j2;
-import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 
 import static com.codeborne.selenide.Condition.enabled;
-import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 
 @Log4j2

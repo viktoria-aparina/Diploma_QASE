@@ -68,21 +68,21 @@ public class AllDefectsPage extends BasePage {
         return new DefectPage();
     }
 
-     public boolean isVisibleNewDefectTitle(String defectTitle) {
-         try {
-             $x(String.format("//a[text()='%s']", defectTitle)).shouldBe(visible);
-             return true;
-         } catch (NoSuchElementException exception) {
-             log.error("The defect {} was not found, because of error {}", defectTitle, exception.getCause());
-             return false;
-         }
-     }
+    public boolean isVisibleNewDefectTitle(String defectTitle) {
+        try {
+            $x(String.format("//a[text()='%s']", defectTitle)).shouldBe(visible);
+            return true;
+        } catch (NoSuchElementException exception) {
+            log.error("The defect {} was not found, because of error {}", defectTitle, exception.getCause());
+            return false;
+        }
+    }
 
-     public AllDefectsPage clickStatusButton(String status) {
+    public AllDefectsPage clickStatusButton(String status) {
         $x("//div[@class='filter-item']").shouldBe(enabled).click();
-         String filterLocator = "//span[text()='%s']/ancestor::div[@class='checkbox']//span[@class='custom-control-indicator']";
-         $x(String.format(filterLocator, "Open")).click();
+        String filterLocator = "//span[text()='%s']/ancestor::div[@class='checkbox']//span[@class='custom-control-indicator']";
+        $x(String.format(filterLocator, "Open")).click();
         $x(String.format(filterLocator, status)).click();
         return this;
-     }
+    }
 }

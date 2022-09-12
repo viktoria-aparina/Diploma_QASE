@@ -1,16 +1,13 @@
 package by.teachmeskills.ui.pages;
 
 import by.teachmeskills.ui.dto.project.Project;
-import com.codeborne.selenide.SelenideElement;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 
 import static com.codeborne.selenide.Condition.enabled;
-import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
-import static org.testng.Assert.assertTrue;
 
 @Log4j2
 public class NewProjectPage extends BasePage {
