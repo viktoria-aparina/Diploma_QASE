@@ -20,7 +20,7 @@
         <aspectj.version>1.9.9</aspectj.version>
         <allure-testng.version>2.18.1</allure-testng.version>
         <log4j.version>2.18.0</log4j.version>
-        <yaml.version>2.13.3</yaml.version>
+        <yaml.version>2.10.2</yaml.version>
         <lombok.version>1.18.24</lombok.version>
         <selenide.version>6.6.6</selenide.version>
         <assertj.version>3.23.1</assertj.version>
