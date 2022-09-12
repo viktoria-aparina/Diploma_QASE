@@ -11,13 +11,14 @@ import static io.restassured.RestAssured.given;
 
 public class BaseApiClient {
 
+    private final static String TOKEN = "567843fe1830148b87fe314fa2af79691f543a93";
     RequestSpecification rqSpec;
 
     public BaseApiClient() {
         rqSpec = given()
                 .contentType(ContentType.JSON)
                 .accept(ContentType.JSON)
-                .header("Token", System.getenv("Token"))
+                .header("Token", TOKEN)
                 .baseUri("https://api.qase.io/")
                 .log().ifValidationFails();
     }
