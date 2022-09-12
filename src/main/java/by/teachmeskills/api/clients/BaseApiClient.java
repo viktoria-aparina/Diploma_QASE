@@ -17,7 +17,7 @@ public class BaseApiClient {
         rqSpec = given()
                 .contentType(ContentType.JSON)
                 .accept(ContentType.JSON)
-                .header("Token", System.getenv("token"))
+                .header("Token", System.getenv("Token"))
                 .baseUri("https://api.qase.io/")
                 .log().ifValidationFails();
     }
@@ -51,7 +51,7 @@ public class BaseApiClient {
         return given()
                 .contentType(ContentType.MULTIPART)
                 .accept(ContentType.JSON)
-                .header("Token", System.getenv("token"))
+                .header("Token", System.getenv("Token"))
                 .baseUri("https://api.qase.io/")
                 .multiPart("file", attachment, "image/x-png")
                 .log().ifValidationFails()
