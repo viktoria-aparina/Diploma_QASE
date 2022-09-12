@@ -2,7 +2,6 @@ package by.teachmeskills.api;
 
 import by.teachmeskills.api.dto.allDefects.AllDefects;
 import by.teachmeskills.api.dto.defect.Defect;
-import by.teachmeskills.api.dto.defect.response.DefectResponse;
 import by.teachmeskills.api.providers.DefectProvider;
 import io.restassured.response.Response;
 import org.apache.http.HttpStatus;
@@ -17,11 +16,11 @@ public class GetAllDefectsTest extends BaseTest {
     @BeforeMethod
     public void createProjectAndDefects() {
         Defect expectedDefect1 = new DefectProvider().getDefectWithRequiredFields();
-        DefectResponse postActualDefect1 = defectApiClients.postDefect(expectedDefect1, project.getCode(), HttpStatus.SC_OK);
+        defectApiClients.postDefect(expectedDefect1, project.getCode(), HttpStatus.SC_OK);
         Defect expectedDefect2 = new DefectProvider().getDefectWithRequiredFields();
-        DefectResponse postActualDefect2 = defectApiClients.postDefect(expectedDefect2, project.getCode(), HttpStatus.SC_OK);
+        defectApiClients.postDefect(expectedDefect2, project.getCode(), HttpStatus.SC_OK);
         Defect expectedDefect3 = new DefectProvider().getDefectWithRequiredFields();
-        DefectResponse postActualDefect3 = defectApiClients.postDefect(expectedDefect3, project.getCode(), HttpStatus.SC_OK);
+        defectApiClients.postDefect(expectedDefect3, project.getCode(), HttpStatus.SC_OK);
     }
 
     @Test(groups = "smoke API tests", description = "API: Get all project's defects")

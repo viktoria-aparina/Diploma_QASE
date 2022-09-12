@@ -7,15 +7,9 @@ import by.teachmeskills.api.clients.ProjectApiClient;
 import by.teachmeskills.api.dto.defect.response.DefectResponse;
 import by.teachmeskills.api.dto.project.Project;
 import by.teachmeskills.api.providers.ProjectProvider;
-import by.teachmeskills.ui.utils.TestListener;
 import org.apache.http.HttpStatus;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Listeners;
-
-import java.time.Duration;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -27,7 +21,7 @@ public class BaseTest {
     AttachmentApiClient attachmentApiClient = new AttachmentApiClient();
     MilestonesApiClient milestonesApiClient = new MilestonesApiClient();
 
-    @BeforeMethod(groups = { "smoke API tests", "regression API tests"})
+    @BeforeMethod(groups = {"smoke API tests", "regression API tests"})
     public void createProject() {
         project = new ProjectProvider().getProject();
         projectApiClient.postProject(project, HttpStatus.SC_OK);
