@@ -1,6 +1,9 @@
 package by.teachmeskills.api.clients;
 
+import io.restassured.config.ObjectMapperConfig;
+import io.restassured.config.RestAssuredConfig;
 import io.restassured.http.ContentType;
+import io.restassured.mapper.ObjectMapperType;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
@@ -15,6 +18,7 @@ public class BaseApiClient {
 
     public BaseApiClient() {
         rqSpec = given()
+                .config(RestAssuredConfig.config().objectMapperConfig(new ObjectMapperConfig(ObjectMapperType.GSON)))
                 .contentType(ContentType.JSON)
                 .accept(ContentType.JSON)
                 .header("Token", System.getenv("Token"))
